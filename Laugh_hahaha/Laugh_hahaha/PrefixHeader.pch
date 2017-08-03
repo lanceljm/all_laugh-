@@ -1,0 +1,69 @@
+//
+//  PrefixHeader.pch
+//  Laugh_hahaha
+//
+//  Created by EPIC_IOS on 2017/8/1.
+//  Copyright © 2017年 ljm. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+/* < 静态全局变量 > */
+#import "GlobalConst.h"
+
+/** sdwebimage图片 **/
+#import <SDWebImage/UIImageView+WebCache.h>
+
+/** masonry约束 **/
+#import <Masonry.h>
+
+/** 模型转换 **/
+#import <MJExtension/MJExtension.h>
+
+/* < 网络请求工具类 > */
+#import "NetworkTools.h"
+
+/** 自定义 头文件 **/
+#import "TextViewController.h"
+#import "ImageViewController.h"
+#import "GifViewController.h"
+
+/** 各类模型 **/
+#import "TextModel.h"
+#import "ImageModel.h"
+#import "GifModel.h"
+
+
+// 打印方法
+#define SLFunc SLLog(@"%s",__func__);
+// 自定义LOG
+#ifdef DEBUG // 调试阶段
+
+#define SLLog(...) NSLog(__VA_ARGS__);
+
+#else // 发布阶段
+
+#define SLLog(...)
+
+#endif
+
+
+/** 屏幕的宽 高 **/
+#define kselfWidth [UIScreen mainScreen].bounds.size.width
+#define kselfHeight [UIScreen mainScreen].bounds.size.height
+
+/**
+ *    网络请求参数
+ */
+#define parmDic     @{@"showapi_appid":showapi_appid,@"showapi_sign":showapi_sign}
+
+
+// RGB颜色宏
+#define RGBColor(r , g , b , alph) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:(alph) / 1.0]
+
+
+#endif /* PrefixHeader_pch */

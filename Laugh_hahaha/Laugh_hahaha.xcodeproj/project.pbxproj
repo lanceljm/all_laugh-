@@ -1,0 +1,976 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1AC0224E1F310A8F00D703BE /* TabVarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC0224D1F310A8F00D703BE /* TabVarController.m */; };
+		1AC022511F311B2800D703BE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC022501F311B2800D703BE /* RootViewController.m */; };
+		1AE8251E1F324D440060CD56 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE8251C1F324D440060CD56 /* TextTableViewCell.m */; };
+		1AE8251F1F324D440060CD56 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE8251D1F324D440060CD56 /* TextTableViewCell.xib */; };
+		1AE825231F3258DB0060CD56 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE825211F3258DB0060CD56 /* ImageTableViewCell.m */; };
+		1AE825241F3258DB0060CD56 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE825221F3258DB0060CD56 /* ImageTableViewCell.xib */; };
+		1AE8252B1F3259B40060CD56 /* GifTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE825291F3259B40060CD56 /* GifTableViewCell.m */; };
+		1AE8252C1F3259B40060CD56 /* GifTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AE8252A1F3259B40060CD56 /* GifTableViewCell.xib */; };
+		21D5403F23EFE4B190C18D01 /* libPods-Laugh_hahahaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3BA93AFEAF6497F4EEC937 /* libPods-Laugh_hahahaTests.a */; };
+		364D4DA11F30625F00D0994C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D4DA01F30625F00D0994C /* main.m */; };
+		364D4DA41F30625F00D0994C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D4DA31F30625F00D0994C /* AppDelegate.m */; };
+		364D4DAA1F30625F00D0994C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 364D4DA81F30625F00D0994C /* Main.storyboard */; };
+		364D4DAC1F30625F00D0994C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 364D4DAB1F30625F00D0994C /* Assets.xcassets */; };
+		364D4DAF1F30625F00D0994C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 364D4DAD1F30625F00D0994C /* LaunchScreen.storyboard */; };
+		364D4DBA1F30625F00D0994C /* Laugh_hahahaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D4DB91F30625F00D0994C /* Laugh_hahahaTests.m */; };
+		364D4DC51F30625F00D0994C /* Laugh_hahahaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D4DC41F30625F00D0994C /* Laugh_hahahaUITests.m */; };
+		364D4DD81F3070AB00D0994C /* TextModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D4DD71F3070AB00D0994C /* TextModel.m */; };
+		364D4DDB1F3071B600D0994C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D4DDA1F3071B600D0994C /* LoginViewController.m */; };
+		364D4DEA1F30741D00D0994C /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D4DE91F30741D00D0994C /* ImageModel.m */; };
+		364D4DED1F3074C100D0994C /* GifModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D4DEC1F3074C100D0994C /* GifModel.m */; };
+		364D4DF11F30774C00D0994C /* GlobalConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 364D4DF01F30774C00D0994C /* GlobalConst.m */; };
+		36CC39441F31697500C709F2 /* NetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC39431F31697500C709F2 /* NetworkTools.m */; };
+		36CC39471F31753100C709F2 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC39461F31753100C709F2 /* GifViewController.m */; };
+		36CC394A1F31753D00C709F2 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC39491F31753D00C709F2 /* ImageViewController.m */; };
+		36CC394D1F31754A00C709F2 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC394C1F31754A00C709F2 /* TextViewController.m */; };
+		91181646FCFA27F9645F226A /* libPods-Laugh_hahaha.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CFF3432263036232CB667EA /* libPods-Laugh_hahaha.a */; };
+		99526BE43587629F6AB51276 /* libPods-Laugh_hahahaUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F34FFBDFB47BBDD7AD4CBD /* libPods-Laugh_hahahaUITests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		364D4DB61F30625F00D0994C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 364D4D941F30625E00D0994C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 364D4D9B1F30625F00D0994C;
+			remoteInfo = Laugh_hahaha;
+		};
+		364D4DC11F30625F00D0994C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 364D4D941F30625E00D0994C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 364D4D9B1F30625F00D0994C;
+			remoteInfo = Laugh_hahaha;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03F34FFBDFB47BBDD7AD4CBD /* libPods-Laugh_hahahaUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Laugh_hahahaUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1650E8D8959E3D9F8343481F /* Pods-Laugh_hahaha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laugh_hahaha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Laugh_hahaha/Pods-Laugh_hahaha.debug.xcconfig"; sourceTree = "<group>"; };
+		1AC0224C1F310A8F00D703BE /* TabVarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabVarController.h; sourceTree = "<group>"; };
+		1AC0224D1F310A8F00D703BE /* TabVarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabVarController.m; sourceTree = "<group>"; };
+		1AC0224F1F311B2800D703BE /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		1AC022501F311B2800D703BE /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		1AE8251B1F324D440060CD56 /* TextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextTableViewCell.h; sourceTree = "<group>"; };
+		1AE8251C1F324D440060CD56 /* TextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextTableViewCell.m; sourceTree = "<group>"; };
+		1AE8251D1F324D440060CD56 /* TextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
+		1AE825201F3258DB0060CD56 /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		1AE825211F3258DB0060CD56 /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		1AE825221F3258DB0060CD56 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		1AE825281F3259B40060CD56 /* GifTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifTableViewCell.h; sourceTree = "<group>"; };
+		1AE825291F3259B40060CD56 /* GifTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifTableViewCell.m; sourceTree = "<group>"; };
+		1AE8252A1F3259B40060CD56 /* GifTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GifTableViewCell.xib; sourceTree = "<group>"; };
+		1B20DAF6F8C1E5678D7AD11B /* Pods-Laugh_hahahaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laugh_hahahaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Laugh_hahahaTests/Pods-Laugh_hahahaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1D0BB09DDCB45711DDF7525E /* Pods-Laugh_hahahaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laugh_hahahaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Laugh_hahahaTests/Pods-Laugh_hahahaTests.release.xcconfig"; sourceTree = "<group>"; };
+		364D4D9C1F30625F00D0994C /* Laugh_hahaha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Laugh_hahaha.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		364D4DA01F30625F00D0994C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		364D4DA21F30625F00D0994C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		364D4DA31F30625F00D0994C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		364D4DA91F30625F00D0994C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		364D4DAB1F30625F00D0994C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		364D4DAE1F30625F00D0994C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		364D4DB01F30625F00D0994C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		364D4DB51F30625F00D0994C /* Laugh_hahahaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Laugh_hahahaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		364D4DB91F30625F00D0994C /* Laugh_hahahaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Laugh_hahahaTests.m; sourceTree = "<group>"; };
+		364D4DBB1F30625F00D0994C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		364D4DC01F30625F00D0994C /* Laugh_hahahaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Laugh_hahahaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		364D4DC41F30625F00D0994C /* Laugh_hahahaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Laugh_hahahaUITests.m; sourceTree = "<group>"; };
+		364D4DC61F30625F00D0994C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		364D4DD61F3070AB00D0994C /* TextModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextModel.h; sourceTree = "<group>"; };
+		364D4DD71F3070AB00D0994C /* TextModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextModel.m; sourceTree = "<group>"; };
+		364D4DD91F3071B600D0994C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		364D4DDA1F3071B600D0994C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		364D4DDC1F3071CB00D0994C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		364D4DE81F30741D00D0994C /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
+		364D4DE91F30741D00D0994C /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
+		364D4DEB1F3074C100D0994C /* GifModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifModel.h; sourceTree = "<group>"; };
+		364D4DEC1F3074C100D0994C /* GifModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifModel.m; sourceTree = "<group>"; };
+		364D4DEF1F30774C00D0994C /* GlobalConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalConst.h; sourceTree = "<group>"; };
+		364D4DF01F30774C00D0994C /* GlobalConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalConst.m; sourceTree = "<group>"; };
+		36CC39421F31697500C709F2 /* NetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTools.h; sourceTree = "<group>"; };
+		36CC39431F31697500C709F2 /* NetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTools.m; sourceTree = "<group>"; };
+		36CC39451F31753100C709F2 /* GifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifViewController.h; sourceTree = "<group>"; };
+		36CC39461F31753100C709F2 /* GifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifViewController.m; sourceTree = "<group>"; };
+		36CC39481F31753D00C709F2 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		36CC39491F31753D00C709F2 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		36CC394B1F31754A00C709F2 /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
+		36CC394C1F31754A00C709F2 /* TextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
+		3CFF3432263036232CB667EA /* libPods-Laugh_hahaha.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Laugh_hahaha.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0D78E4CD9FD5B112245C1C7 /* Pods-Laugh_hahahaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laugh_hahahaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Laugh_hahahaUITests/Pods-Laugh_hahahaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B971EDFD36894443554C26D2 /* Pods-Laugh_hahaha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laugh_hahaha.release.xcconfig"; path = "Pods/Target Support Files/Pods-Laugh_hahaha/Pods-Laugh_hahaha.release.xcconfig"; sourceTree = "<group>"; };
+		EB3BA93AFEAF6497F4EEC937 /* libPods-Laugh_hahahaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Laugh_hahahaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE7B46A9EC806B842D3AF4DE /* Pods-Laugh_hahahaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Laugh_hahahaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Laugh_hahahaUITests/Pods-Laugh_hahahaUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		364D4D991F30625F00D0994C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91181646FCFA27F9645F226A /* libPods-Laugh_hahaha.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		364D4DB21F30625F00D0994C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21D5403F23EFE4B190C18D01 /* libPods-Laugh_hahahaTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		364D4DBD1F30625F00D0994C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99526BE43587629F6AB51276 /* libPods-Laugh_hahahaUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F902805B8AFD1FE2F7C5CE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CFF3432263036232CB667EA /* libPods-Laugh_hahaha.a */,
+				EB3BA93AFEAF6497F4EEC937 /* libPods-Laugh_hahahaTests.a */,
+				03F34FFBDFB47BBDD7AD4CBD /* libPods-Laugh_hahahaUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		364D4D931F30625E00D0994C = {
+			isa = PBXGroup;
+			children = (
+				364D4D9E1F30625F00D0994C /* Laugh_hahaha */,
+				364D4DB81F30625F00D0994C /* Laugh_hahahaTests */,
+				364D4DC31F30625F00D0994C /* Laugh_hahahaUITests */,
+				364D4D9D1F30625F00D0994C /* Products */,
+				4227C0F2D59DB32B92EBE794 /* Pods */,
+				1F902805B8AFD1FE2F7C5CE4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		364D4D9D1F30625F00D0994C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				364D4D9C1F30625F00D0994C /* Laugh_hahaha.app */,
+				364D4DB51F30625F00D0994C /* Laugh_hahahaTests.xctest */,
+				364D4DC01F30625F00D0994C /* Laugh_hahahaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		364D4D9E1F30625F00D0994C /* Laugh_hahaha */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DD21F30628A00D0994C /* Classes */,
+				364D4D9F1F30625F00D0994C /* Supporting Files */,
+			);
+			path = Laugh_hahaha;
+			sourceTree = "<group>";
+		};
+		364D4D9F1F30625F00D0994C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DA01F30625F00D0994C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		364D4DB81F30625F00D0994C /* Laugh_hahahaTests */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DB91F30625F00D0994C /* Laugh_hahahaTests.m */,
+				364D4DBB1F30625F00D0994C /* Info.plist */,
+			);
+			path = Laugh_hahahaTests;
+			sourceTree = "<group>";
+		};
+		364D4DC31F30625F00D0994C /* Laugh_hahahaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DC41F30625F00D0994C /* Laugh_hahahaUITests.m */,
+				364D4DC61F30625F00D0994C /* Info.plist */,
+			);
+			path = Laugh_hahahaUITests;
+			sourceTree = "<group>";
+		};
+		364D4DD21F30628A00D0994C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DE71F30739D00D0994C /* Login */,
+				364D4DE61F30736C00D0994C /* System File */,
+				36CC39411F31695A00C709F2 /* Tools */,
+				364D4DEE1F3075CC00D0994C /* Other */,
+				364D4DDD1F3072B000D0994C /* Text */,
+				364D4DDE1F30730800D0994C /* Image */,
+				364D4DDF1F30731800D0994C /* GIF */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		364D4DD31F3063E500D0994C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1AE8251B1F324D440060CD56 /* TextTableViewCell.h */,
+				1AE8251C1F324D440060CD56 /* TextTableViewCell.m */,
+				1AE8251D1F324D440060CD56 /* TextTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		364D4DD41F3063EC00D0994C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DD61F3070AB00D0994C /* TextModel.h */,
+				364D4DD71F3070AB00D0994C /* TextModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		364D4DD51F3063F300D0994C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36CC394B1F31754A00C709F2 /* TextViewController.h */,
+				36CC394C1F31754A00C709F2 /* TextViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		364D4DDD1F3072B000D0994C /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DD51F3063F300D0994C /* Controller */,
+				364D4DD41F3063EC00D0994C /* Model */,
+				364D4DD31F3063E500D0994C /* View */,
+			);
+			name = Text;
+			sourceTree = "<group>";
+		};
+		364D4DDE1F30730800D0994C /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DE51F30735200D0994C /* Model */,
+				364D4DE41F30734400D0994C /* View */,
+				364D4DE31F30733B00D0994C /* Controller */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		364D4DDF1F30731800D0994C /* GIF */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DE01F30732100D0994C /* Controller */,
+				364D4DE21F30733300D0994C /* Model */,
+				364D4DE11F30732A00D0994C /* View */,
+			);
+			name = GIF;
+			sourceTree = "<group>";
+		};
+		364D4DE01F30732100D0994C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36CC39451F31753100C709F2 /* GifViewController.h */,
+				36CC39461F31753100C709F2 /* GifViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		364D4DE11F30732A00D0994C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1AE825281F3259B40060CD56 /* GifTableViewCell.h */,
+				1AE825291F3259B40060CD56 /* GifTableViewCell.m */,
+				1AE8252A1F3259B40060CD56 /* GifTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		364D4DE21F30733300D0994C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DEB1F3074C100D0994C /* GifModel.h */,
+				364D4DEC1F3074C100D0994C /* GifModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		364D4DE31F30733B00D0994C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36CC39481F31753D00C709F2 /* ImageViewController.h */,
+				36CC39491F31753D00C709F2 /* ImageViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		364D4DE41F30734400D0994C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1AE825201F3258DB0060CD56 /* ImageTableViewCell.h */,
+				1AE825211F3258DB0060CD56 /* ImageTableViewCell.m */,
+				1AE825221F3258DB0060CD56 /* ImageTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		364D4DE51F30735200D0994C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DE81F30741D00D0994C /* ImageModel.h */,
+				364D4DE91F30741D00D0994C /* ImageModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		364D4DE61F30736C00D0994C /* System File */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DA21F30625F00D0994C /* AppDelegate.h */,
+				364D4DA31F30625F00D0994C /* AppDelegate.m */,
+				364D4DA81F30625F00D0994C /* Main.storyboard */,
+				364D4DAB1F30625F00D0994C /* Assets.xcassets */,
+				364D4DAD1F30625F00D0994C /* LaunchScreen.storyboard */,
+				364D4DB01F30625F00D0994C /* Info.plist */,
+				1AC0224C1F310A8F00D703BE /* TabVarController.h */,
+				1AC0224D1F310A8F00D703BE /* TabVarController.m */,
+				1AC0224F1F311B2800D703BE /* RootViewController.h */,
+				1AC022501F311B2800D703BE /* RootViewController.m */,
+			);
+			name = "System File";
+			sourceTree = "<group>";
+		};
+		364D4DE71F30739D00D0994C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DD91F3071B600D0994C /* LoginViewController.h */,
+				364D4DDA1F3071B600D0994C /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		364D4DEE1F3075CC00D0994C /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				364D4DDC1F3071CB00D0994C /* PrefixHeader.pch */,
+				364D4DEF1F30774C00D0994C /* GlobalConst.h */,
+				364D4DF01F30774C00D0994C /* GlobalConst.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		36CC39411F31695A00C709F2 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				36CC39421F31697500C709F2 /* NetworkTools.h */,
+				36CC39431F31697500C709F2 /* NetworkTools.m */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		4227C0F2D59DB32B92EBE794 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1650E8D8959E3D9F8343481F /* Pods-Laugh_hahaha.debug.xcconfig */,
+				B971EDFD36894443554C26D2 /* Pods-Laugh_hahaha.release.xcconfig */,
+				1B20DAF6F8C1E5678D7AD11B /* Pods-Laugh_hahahaTests.debug.xcconfig */,
+				1D0BB09DDCB45711DDF7525E /* Pods-Laugh_hahahaTests.release.xcconfig */,
+				A0D78E4CD9FD5B112245C1C7 /* Pods-Laugh_hahahaUITests.debug.xcconfig */,
+				FE7B46A9EC806B842D3AF4DE /* Pods-Laugh_hahahaUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		364D4D9B1F30625F00D0994C /* Laugh_hahaha */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 364D4DC91F30625F00D0994C /* Build configuration list for PBXNativeTarget "Laugh_hahaha" */;
+			buildPhases = (
+				5EC946A35ADD2BE3BA78C47A /* [CP] Check Pods Manifest.lock */,
+				364D4D981F30625F00D0994C /* Sources */,
+				364D4D991F30625F00D0994C /* Frameworks */,
+				364D4D9A1F30625F00D0994C /* Resources */,
+				8612F1DA588D6B28F4F5A956 /* [CP] Embed Pods Frameworks */,
+				E4129175431D622C4376A8E1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Laugh_hahaha;
+			productName = Laugh_hahaha;
+			productReference = 364D4D9C1F30625F00D0994C /* Laugh_hahaha.app */;
+			productType = "com.apple.product-type.application";
+		};
+		364D4DB41F30625F00D0994C /* Laugh_hahahaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 364D4DCC1F30625F00D0994C /* Build configuration list for PBXNativeTarget "Laugh_hahahaTests" */;
+			buildPhases = (
+				0BD682CDDEEAC01DD533FFF0 /* [CP] Check Pods Manifest.lock */,
+				364D4DB11F30625F00D0994C /* Sources */,
+				364D4DB21F30625F00D0994C /* Frameworks */,
+				364D4DB31F30625F00D0994C /* Resources */,
+				EAB31D3506CCACDB892A4877 /* [CP] Embed Pods Frameworks */,
+				409DCD74F6197B6D720ABCCC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				364D4DB71F30625F00D0994C /* PBXTargetDependency */,
+			);
+			name = Laugh_hahahaTests;
+			productName = Laugh_hahahaTests;
+			productReference = 364D4DB51F30625F00D0994C /* Laugh_hahahaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		364D4DBF1F30625F00D0994C /* Laugh_hahahaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 364D4DCF1F30625F00D0994C /* Build configuration list for PBXNativeTarget "Laugh_hahahaUITests" */;
+			buildPhases = (
+				DC761A11FFB10BAA3BB3132D /* [CP] Check Pods Manifest.lock */,
+				364D4DBC1F30625F00D0994C /* Sources */,
+				364D4DBD1F30625F00D0994C /* Frameworks */,
+				364D4DBE1F30625F00D0994C /* Resources */,
+				0219AC31DF1EF15B7D234B63 /* [CP] Embed Pods Frameworks */,
+				DA2A3BA0AB394817BD2901E0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				364D4DC21F30625F00D0994C /* PBXTargetDependency */,
+			);
+			name = Laugh_hahahaUITests;
+			productName = Laugh_hahahaUITests;
+			productReference = 364D4DC01F30625F00D0994C /* Laugh_hahahaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		364D4D941F30625E00D0994C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = ljm;
+				TargetAttributes = {
+					364D4D9B1F30625F00D0994C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = W7MQ5T8GZP;
+						ProvisioningStyle = Automatic;
+					};
+					364D4DB41F30625F00D0994C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2PC8J9MPF4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 364D4D9B1F30625F00D0994C;
+					};
+					364D4DBF1F30625F00D0994C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2PC8J9MPF4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 364D4D9B1F30625F00D0994C;
+					};
+				};
+			};
+			buildConfigurationList = 364D4D971F30625E00D0994C /* Build configuration list for PBXProject "Laugh_hahaha" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 364D4D931F30625E00D0994C;
+			productRefGroup = 364D4D9D1F30625F00D0994C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				364D4D9B1F30625F00D0994C /* Laugh_hahaha */,
+				364D4DB41F30625F00D0994C /* Laugh_hahahaTests */,
+				364D4DBF1F30625F00D0994C /* Laugh_hahahaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		364D4D9A1F30625F00D0994C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AE825241F3258DB0060CD56 /* ImageTableViewCell.xib in Resources */,
+				364D4DAF1F30625F00D0994C /* LaunchScreen.storyboard in Resources */,
+				1AE8252C1F3259B40060CD56 /* GifTableViewCell.xib in Resources */,
+				364D4DAC1F30625F00D0994C /* Assets.xcassets in Resources */,
+				1AE8251F1F324D440060CD56 /* TextTableViewCell.xib in Resources */,
+				364D4DAA1F30625F00D0994C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		364D4DB31F30625F00D0994C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		364D4DBE1F30625F00D0994C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0219AC31DF1EF15B7D234B63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Laugh_hahahaUITests/Pods-Laugh_hahahaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0BD682CDDEEAC01DD533FFF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		409DCD74F6197B6D720ABCCC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Laugh_hahahaTests/Pods-Laugh_hahahaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5EC946A35ADD2BE3BA78C47A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8612F1DA588D6B28F4F5A956 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Laugh_hahaha/Pods-Laugh_hahaha-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA2A3BA0AB394817BD2901E0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Laugh_hahahaUITests/Pods-Laugh_hahahaUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC761A11FFB10BAA3BB3132D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E4129175431D622C4376A8E1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Laugh_hahaha/Pods-Laugh_hahaha-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAB31D3506CCACDB892A4877 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Laugh_hahahaTests/Pods-Laugh_hahahaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		364D4D981F30625F00D0994C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36CC394A1F31753D00C709F2 /* ImageViewController.m in Sources */,
+				1AC0224E1F310A8F00D703BE /* TabVarController.m in Sources */,
+				364D4DF11F30774C00D0994C /* GlobalConst.m in Sources */,
+				364D4DD81F3070AB00D0994C /* TextModel.m in Sources */,
+				364D4DED1F3074C100D0994C /* GifModel.m in Sources */,
+				36CC39471F31753100C709F2 /* GifViewController.m in Sources */,
+				1AE8252B1F3259B40060CD56 /* GifTableViewCell.m in Sources */,
+				364D4DA41F30625F00D0994C /* AppDelegate.m in Sources */,
+				1AE825231F3258DB0060CD56 /* ImageTableViewCell.m in Sources */,
+				36CC39441F31697500C709F2 /* NetworkTools.m in Sources */,
+				1AE8251E1F324D440060CD56 /* TextTableViewCell.m in Sources */,
+				364D4DEA1F30741D00D0994C /* ImageModel.m in Sources */,
+				36CC394D1F31754A00C709F2 /* TextViewController.m in Sources */,
+				1AC022511F311B2800D703BE /* RootViewController.m in Sources */,
+				364D4DA11F30625F00D0994C /* main.m in Sources */,
+				364D4DDB1F3071B600D0994C /* LoginViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		364D4DB11F30625F00D0994C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				364D4DBA1F30625F00D0994C /* Laugh_hahahaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		364D4DBC1F30625F00D0994C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				364D4DC51F30625F00D0994C /* Laugh_hahahaUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		364D4DB71F30625F00D0994C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 364D4D9B1F30625F00D0994C /* Laugh_hahaha */;
+			targetProxy = 364D4DB61F30625F00D0994C /* PBXContainerItemProxy */;
+		};
+		364D4DC21F30625F00D0994C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 364D4D9B1F30625F00D0994C /* Laugh_hahaha */;
+			targetProxy = 364D4DC11F30625F00D0994C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		364D4DA81F30625F00D0994C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				364D4DA91F30625F00D0994C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		364D4DAD1F30625F00D0994C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				364D4DAE1F30625F00D0994C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		364D4DC71F30625F00D0994C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		364D4DC81F30625F00D0994C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		364D4DCA1F30625F00D0994C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1650E8D8959E3D9F8343481F /* Pods-Laugh_hahaha.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W7MQ5T8GZP;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Laugh_hahaha/PrefixHeader.pch";
+				INFOPLIST_FILE = Laugh_hahaha/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ljm.ynyx.Laugh-hahaha";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		364D4DCB1F30625F00D0994C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B971EDFD36894443554C26D2 /* Pods-Laugh_hahaha.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W7MQ5T8GZP;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Laugh_hahaha/PrefixHeader.pch";
+				INFOPLIST_FILE = Laugh_hahaha/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ljm.ynyx.Laugh-hahaha";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+		364D4DCD1F30625F00D0994C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B20DAF6F8C1E5678D7AD11B /* Pods-Laugh_hahahaTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2PC8J9MPF4;
+				INFOPLIST_FILE = Laugh_hahahaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ljm.Laugh-hahahaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Laugh_hahaha.app/Laugh_hahaha";
+			};
+			name = Debug;
+		};
+		364D4DCE1F30625F00D0994C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D0BB09DDCB45711DDF7525E /* Pods-Laugh_hahahaTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2PC8J9MPF4;
+				INFOPLIST_FILE = Laugh_hahahaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ljm.Laugh-hahahaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Laugh_hahaha.app/Laugh_hahaha";
+			};
+			name = Release;
+		};
+		364D4DD01F30625F00D0994C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0D78E4CD9FD5B112245C1C7 /* Pods-Laugh_hahahaUITests.debug.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 2PC8J9MPF4;
+				INFOPLIST_FILE = Laugh_hahahaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ljm.Laugh-hahahaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Laugh_hahaha;
+			};
+			name = Debug;
+		};
+		364D4DD11F30625F00D0994C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE7B46A9EC806B842D3AF4DE /* Pods-Laugh_hahahaUITests.release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 2PC8J9MPF4;
+				INFOPLIST_FILE = Laugh_hahahaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ljm.Laugh-hahahaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Laugh_hahaha;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		364D4D971F30625E00D0994C /* Build configuration list for PBXProject "Laugh_hahaha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				364D4DC71F30625F00D0994C /* Debug */,
+				364D4DC81F30625F00D0994C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		364D4DC91F30625F00D0994C /* Build configuration list for PBXNativeTarget "Laugh_hahaha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				364D4DCA1F30625F00D0994C /* Debug */,
+				364D4DCB1F30625F00D0994C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		364D4DCC1F30625F00D0994C /* Build configuration list for PBXNativeTarget "Laugh_hahahaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				364D4DCD1F30625F00D0994C /* Debug */,
+				364D4DCE1F30625F00D0994C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		364D4DCF1F30625F00D0994C /* Build configuration list for PBXNativeTarget "Laugh_hahahaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				364D4DD01F30625F00D0994C /* Debug */,
+				364D4DD11F30625F00D0994C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 364D4D941F30625E00D0994C /* Project object */;
+}
