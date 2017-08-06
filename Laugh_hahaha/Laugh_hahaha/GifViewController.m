@@ -12,6 +12,10 @@
 static NSString *cellID = @"cellId";
 
 @interface GifViewController ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSInteger      _index;
+    NSInteger   _allpage;
+}
 
 @property (nonatomic,strong) NSMutableArray *dataArray;
 @property (nonatomic,strong) UITableView    *myTableview;
@@ -23,26 +27,45 @@ static NSString *cellID = @"cellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    _index = 1;
+    if (_index < 1 || _index > _allpage) {
+        _index = 1;
+    }
+    
     [self.view addSubview:self.myTableview];
 //    self.view.backgroundColor = [UIColor greenColor];
     
     
-    [self loadDataSource];
-
+//    [self loadDataSource];
+    [self refreshDataSource];
     
+}
+
+#pragma mark -- 刷新
+- (void) refreshDataSource
+{
+    __weak typeof(self) weakself = self;
+    self.myTableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakself loadDataSource];
+    }];
+    [self.myTableview.mj_header beginRefreshing];
 }
 
 #pragma mark -- 网络请求
 - (void) loadDataSource
 {
-    [[NetworkTools shareTools] requestWithMethod:GET andURL:GifURL andParameters:parmDic andCallBack:^(id data, NSError *error) {
+    [[NetworkTools shareTools] requestWithMethod:GET andURL:GifURL andParameters:@{parmDic,@"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
         NSArray *arr = data[@"showapi_res_body"][@"contentlist"];
+        _allpage = [data[@"showapi_res_body"][@"allPages"] integerValue];
         if (!error) {
             self.dataArray = [GifModel mj_objectArrayWithKeyValuesArray:arr];
             [self.myTableview reloadData];
+            [self.myTableview.mj_header endRefreshing];
+            _index ++;
         }else
         {
             SLLog(@"gif网络请求失败，失败原因：%@",error);
+            [self.myTableview.mj_header endRefreshing];
         }
     }];
 }
@@ -89,5 +112,6 @@ static NSString *cellID = @"cellId";
     }
     return _myTableview;
 }
+
 
 @end

@@ -27,6 +27,11 @@
 /* < 网络请求工具类 > */
 #import "NetworkTools.h"
 
+/** 刷新 **/
+#import <MJRefresh/MJRefresh.h>
+#import <MJRefresh/MJRefreshHeader.h>
+#import <MJRefresh/MJRefreshFooter.h>
+
 /** 自定义 头文件 **/
 #import "TextViewController.h"
 #import "ImageViewController.h"
@@ -59,7 +64,7 @@
 /**
  *    网络请求参数
  */
-#define parmDic     @{@"showapi_appid":showapi_appid,@"showapi_sign":showapi_sign}
+#define parmDic     @"showapi_appid":showapi_appid,@"showapi_sign":showapi_sign
 
 
 // RGB颜色宏

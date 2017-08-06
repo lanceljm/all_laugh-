@@ -15,6 +15,8 @@ static NSString *cellID = @"cellId";
 {
     UITableView     *   _myTableview;
     NSMutableArray  *   _cellTextHeightArr;
+    NSInteger       _index;
+    NSInteger       _allPage;
     
 }
 
@@ -27,10 +29,15 @@ static NSString *cellID = @"cellId";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self loadDataSource];
+//    [self loadDataSource];
     [self initWithInterface];
+    [self refreshDataSource];
     
-    
+    _index = 1;
+    /** 最大页数是467 **/
+    if (_index < 1 || _index > _allPage) {
+        _index = 1;
+    }
 
 }
 
@@ -52,41 +59,79 @@ static NSString *cellID = @"cellId";
     _cellTextHeightArr = [NSMutableArray new];
 }
 
-#pragma mark -- 加载数据
-- (void) loadDataSource
+#pragma mark -- 刷新
+- (void) refreshDataSource
 {
-//    __weak typeof(self)weakself = self;
+
+    /** 下拉刷新 **/
+    _myTableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadUPDataSource];
+    }];
+    [_myTableview.mj_header beginRefreshing];
     
-    [[NetworkTools shareTools] requestWithMethod:GET andURL:TextURL andParameters: parmDic andCallBack:^(id data, NSError *error) {
+    /** 上拉刷新**/
+//    _myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+////        [self loadDownDataSource];
+//    }];
+}
+
+#pragma mark -- 加载数据
+- (void) loadUPDataSource
+{
+    __weak typeof(self)weakself = self;
+    
+    [[NetworkTools shareTools] requestWithMethod:GET andURL:TextURL andParameters: @{parmDic,@"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
 //        SLLog(@"data:%@",data);
+        SLLog(@"currentpage:%ld",(long)_index);
         NSDictionary *dic   =   data[@"showapi_res_body"];
         NSArray *array      =   dic[@"contentlist"];
-        [self.dataArr removeAllObjects];
+        /** 网络请求得到最大页数 **/
+        _allPage = [dic[@"allPages"] integerValue];
+        [weakself.dataArr removeAllObjects];
         
         /** 网络请求成功 **/
         if (!error) {
-            
             /** 获取文本内容 **/
             for (NSDictionary *textDic in array) {
                 [_cellTextHeightArr addObject:@([NetworkTools getHeightWithText:textDic[@"text"] andFont:15 andWidth:kselfWidth - 10])];
             }
             
-            self.dataArr = [TextModel mj_objectArrayWithKeyValuesArray:array];
+            weakself.dataArr = [TextModel mj_objectArrayWithKeyValuesArray:array];
             [_myTableview reloadData];
-        
-            
-//            SLLog(@"-------------array:%@--------------",weakself.dataArr);
+            [_myTableview.mj_header endRefreshing];
+            _index ++ ;
+            SLLog(@"-------------array:%@--------------",weakself.dataArr);
         }else
         {
             /** 网络请求失败 **/
             SLLog(@"------网络请求错误-------");
+            [_myTableview.mj_header endRefreshing];
         }
     }];
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//- (void) loadDownDataSource
 //{
-//    return  60 + [_cellTextHeightArr[indexPath.row] integerValue];
+//    __weak typeof(self) weakself = self;
+//    
+//    [[NetworkTools shareTools] requestWithMethod:GET andURL:TextURL andParameters:@{parmDic , @"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
+//        NSArray *array      =   data[@"showapi_res_body"][@"contentlist"];
+//        if (!error) {
+//            /** 获取文本内容 **/
+//            for (NSDictionary *textDic in array) {
+//                [_cellTextHeightArr addObject:@([NetworkTools getHeightWithText:textDic[@"text"] andFont:15 andWidth:kselfWidth - 10])];
+//            }
+//            weakself.dataArr = [TextModel mj_objectArrayWithKeyValuesArray:array];
+//            [_myTableview reloadData];
+//            [_myTableview.mj_footer endRefreshing];
+//            _index --;
+//            
+//        }else
+//        {
+//            SLLog(@"上拉网络请求错误");
+////            [_myTableview.mj_footer endRefreshing];
+//        }
+//    }];
 //}
 
 #pragma mark -- uitableview delegate

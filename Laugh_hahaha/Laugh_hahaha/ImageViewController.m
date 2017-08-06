@@ -15,6 +15,8 @@ static NSString *cellid = @"cellID";
 {
     UITableView *_myTableView;
     NSMutableArray  *_dataArray;
+    NSInteger       _index;
+    NSInteger       _allPage;
 }
 
 @end
@@ -37,23 +39,41 @@ static NSString *cellid = @"cellID";
 
     
 //    self.view.backgroundColor = [UIColor yellowColor];
-    
-    [self setupDataSource];
+    [self mjRefreshLoadDataSource];
+//    [self setupDataSource];
     [self setupUI];
+    
+    _index = 1;
+    if (_index < 1 || _index > _allPage) {
+        _index = 1;
+    }
+}
+
+- (void) mjRefreshLoadDataSource
+{
+    _myTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self setupDataSource];
+    }];
+    [_myTableView.mj_header beginRefreshing];
 }
 
 - (void) setupDataSource
 {
 
-    [[NetworkTools shareTools] requestWithMethod:GET andURL:ImageURL andParameters:parmDic andCallBack:^(id data, NSError *error) {
+    [[NetworkTools shareTools] requestWithMethod:GET andURL:ImageURL andParameters:@{parmDic,@"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
         NSArray *dataArr = data[@"showapi_res_body"][@"contentlist"];
+        /** 最大页数 **/
+        _allPage = [data[@"showapi_res_body"][@"allPages"] integerValue];
         [_dataArray removeAllObjects];
         if (!error) {
             _dataArray = [ImageModel mj_objectArrayWithKeyValuesArray:dataArr];
             [_myTableView reloadData];
+            [_myTableView.mj_header endRefreshing];
+            _index ++;
         }else
         {
             SLLog(@"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\图片网络请求失败,失败原因：%@",error);
+            [_myTableView.mj_header endRefreshing];
         }
     }];
 }
