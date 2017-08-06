@@ -21,7 +21,7 @@
     UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,kselfWidth,kselfHeight)];
     image.image = [UIImage imageNamed:@"launch"];
     [self.view addSubview:image];
-    [self performSelector:@selector(DismissVc:) withObject:self afterDelay:0.6f];
+    [self performSelector:@selector(DismissVc:) withObject:self afterDelay:1.0f];
     
 }
 

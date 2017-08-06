@@ -77,22 +77,26 @@
 
 - (void)setGifModel:(GifModel *)gifModel
 {
+    _gifModel = gifModel;
     _titleLab.text  =   gifModel.title;
     _dateLab.text   =   gifModel.ct;
+    
+    
+//    [_gifImageView sd_setImageWithURL:[NSURL URLWithString:gifModel.img] placeholderImage:[UIImage imageNamed:@"占位图"]];
     
     /**
      *    异步操作，保证界面不会被卡死
      */
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
+    
         NSData *dataImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:gifModel.img]];
-        
+    
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            _gifImageView.image = [YLGIFImage imageWithData:dataImage];
+        
+            _gifImageView.image = [YLGIFImage imageWithData:dataImage scale:0.8f];
         });
     });
-    
+
     
 }
 

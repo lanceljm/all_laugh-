@@ -13,7 +13,7 @@ static NSString *cellID = @"cellId";
 
 @interface GifViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    NSInteger      _index;
+    NSInteger   _index;
     NSInteger   _allpage;
 }
 
@@ -34,8 +34,6 @@ static NSString *cellID = @"cellId";
     
     [self.view addSubview:self.myTableview];
 //    self.view.backgroundColor = [UIColor greenColor];
-    
-    
 //    [self loadDataSource];
     [self refreshDataSource];
     
@@ -89,7 +87,17 @@ static NSString *cellID = @"cellId";
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     cell.gifModel = self.dataArray[indexPath.row];
-    
+//    GifModel *model = cell.gifModel;
+////    [cell.gifImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@"占位图"]];
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        NSData *dataImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.img]];
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            cell.gifImageView.image = [YLGIFImage imageWithData:dataImage];
+//        });
+//    });
+
     return cell;
 }
 
