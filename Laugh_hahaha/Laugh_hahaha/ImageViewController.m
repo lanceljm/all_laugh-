@@ -63,7 +63,7 @@ static NSString *cellid = @"cellID";
     _myTableView.frame = [UIScreen mainScreen].bounds;
     _myTableView.delegate = self;
     _myTableView.dataSource = self;
-    _myTableView.rowHeight = kselfWidth;
+    _myTableView.rowHeight = kselfWidth * 1.2;
     [self.view addSubview:_myTableView];
 }
 

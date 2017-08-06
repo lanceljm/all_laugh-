@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+/** 加载GIF图使用 **/
+#import <YLGIFImage/YLGIFImage.h>
+#import <YLGIFImage/YLImageView.h>
 
 @interface GifTableViewCell : UITableViewCell
 
@@ -14,7 +17,7 @@
 @property (nonatomic,strong) UILabel *titleLab;
 
 /** 图片 **/
-@property (nonatomic,strong) UIImageView *gifImageView;
+@property (nonatomic,strong) YLImageView *gifImageView;
 
 /** 日期 **/
 @property (nonatomic,strong) UILabel *dateLab;

@@ -271,9 +271,9 @@
 		364D4DDF1F30731800D0994C /* GIF */ = {
 			isa = PBXGroup;
 			children = (
-				364D4DE01F30732100D0994C /* Controller */,
 				364D4DE21F30733300D0994C /* Model */,
 				364D4DE11F30732A00D0994C /* View */,
+				364D4DE01F30732100D0994C /* Controller */,
 			);
 			name = GIF;
 			sourceTree = "<group>";

@@ -13,6 +13,9 @@ target 'Laugh_hahaha' do
     
     #模型转换
     pod "MJExtension"
+    
+    #加载GIF图
+    pod "YLGIFImage"
 
   target 'Laugh_hahahaTests' do
     inherit! :search_paths

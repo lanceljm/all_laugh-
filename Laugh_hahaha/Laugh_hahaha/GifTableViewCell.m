@@ -8,6 +8,8 @@
 
 #import "GifTableViewCell.h"
 
+
+
 @implementation GifTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -58,7 +60,7 @@
         /**
          *    图片
          */
-        _gifImageView = [[UIImageView alloc] init];
+        _gifImageView = [[YLImageView alloc] init];
         [self addSubview:_gifImageView];
         
         [_gifImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -78,7 +80,20 @@
     _titleLab.text  =   gifModel.title;
     _dateLab.text   =   gifModel.ct;
     
-    [_gifImageView sd_setImageWithURL:[NSURL URLWithString:gifModel.img]];
+    /**
+     *    异步操作，保证界面不会被卡死
+     */
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSData *dataImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:gifModel.img]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            _gifImageView.image = [YLGIFImage imageWithData:dataImage];
+        });
+    });
+    
+    
 }
 
 - (void)awakeFromNib {

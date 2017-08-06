@@ -85,7 +85,7 @@ static NSString *cellID = @"cellId";
         _myTableview = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
         _myTableview.delegate = self;
         _myTableview.dataSource = self;
-        _myTableview.rowHeight = kselfWidth;
+        _myTableview.rowHeight = kselfWidth ;
     }
     return _myTableview;
 }
