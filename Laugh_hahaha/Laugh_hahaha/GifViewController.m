@@ -40,6 +40,10 @@ static NSString *cellID = @"cellId";
 #pragma mark -- 刷新
 - (void) refreshDataSource
 {
+    if (_index > _allpage || _index < 1) {
+        _index = 1;
+    }
+    
     /* < 下拉刷新 > */
     __weak typeof(self) weakself = self;
     self.myTableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -57,10 +61,6 @@ static NSString *cellID = @"cellId";
 #pragma mark -- 下拉刷新的网络请求
 - (void) loadDataSource
 {
-    if (_index < 1 || _index > _allpage) {
-        _index = 1;
-    }
-    
     [[NetworkTools shareTools] requestWithMethod:GET andURL:GifURL andParameters:@{parmDic,@"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
         NSArray *arr = data[@"showapi_res_body"][@"contentlist"];
         _allpage = [data[@"showapi_res_body"][@"allPages"] integerValue];
@@ -82,9 +82,7 @@ static NSString *cellID = @"cellId";
 #pragma mark -- 上拉刷新
 - (void) uploadDataSource
 {
-    if (_index > _allpage || _index < 1) {
-        _index = 1;
-    }
+
     [[NetworkTools shareTools] requestWithMethod:GET andURL:GifURL andParameters:@{parmDic,@"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
         NSArray *arr = data[@"showapi_res_body"][@"contentlist"];
         /** 最大页数 **/

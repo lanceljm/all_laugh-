@@ -71,12 +71,13 @@ static NSString *cellID = @"cellId";
     [_myTableview.mj_header beginRefreshing];
     
     /** 上拉刷新**/
-    _myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [self loadDownDataSource];
-    }];
+//    _myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        [self loadDownDataSource];
+//    }];
+    _myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadDownDataSource)];
 }
 
-#pragma mark -- 加载数据
+#pragma mark -- 加载数据，下拉刷新
 - (void) loadUPDataSource
 {
     __weak typeof(self)weakself = self;
@@ -88,8 +89,7 @@ static NSString *cellID = @"cellId";
         NSArray *array      =   dic[@"contentlist"];
         /** 网络请求得到最大页数 **/
         _allPage = [dic[@"allPages"] integerValue];
-        [weakself.dataArr removeAllObjects];
-        
+//        [weakself.dataArr removeAllObjects];
         /** 网络请求成功 **/
         if (!error) {
             /** 获取文本内容 **/
@@ -115,18 +115,22 @@ static NSString *cellID = @"cellId";
     }];
 }
 
+#pragma mark -- 上拉刷新
 - (void) loadDownDataSource
 {
     __weak typeof(self) weakself = self;
     
     [[NetworkTools shareTools] requestWithMethod:GET andURL:TextURL andParameters:@{parmDic , @"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
         NSArray *array      =   data[@"showapi_res_body"][@"contentlist"];
+        _allPage = [data[@"showapi_res_body"][@"allPages"] integerValue];
+//        [weakself.dataArr removeAllObjects];
         if (!error) {
             /** 获取文本内容 **/
             for (NSDictionary *textDic in array) {
                 [_cellTextHeightArr addObject:@([NetworkTools getHeightWithText:textDic[@"text"] andFont:15 andWidth:kselfWidth - 10])];
             }
             weakself.dataArr = [TextModel mj_objectArrayWithKeyValuesArray:array];
+            SLLog(@"---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n%@\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",weakself.dataArr);
             [_myTableview reloadData];
             [_myTableview.mj_footer endRefreshing];
             _index ++;
