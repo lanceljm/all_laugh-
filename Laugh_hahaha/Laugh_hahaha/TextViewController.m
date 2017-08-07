@@ -13,13 +13,14 @@ static NSString *cellID = @"cellId";
 
 @interface TextViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
-    UITableView     *   _myTableview;
+//    UITableView     *   _myTableview;
     NSMutableArray  *   _cellTextHeightArr;
     NSInteger       _index;
     NSInteger       _allPage;
     
 }
 
+@property (nonatomic,strong) UITableView *myTableview;
 @property (nonatomic,strong) NSMutableArray *dataArr;
 
 @end
@@ -41,17 +42,8 @@ static NSString *cellID = @"cellId";
 - (void) initWithInterface
 {
 //    self.view.backgroundColor       =   [UIColor redColor];
-    
-    _myTableview                    =   [[UITableView alloc] initWithFrame:[UIScreen mainScreen] .bounds];
-    _myTableview .frame = [UIScreen mainScreen].bounds;
-    _myTableview .backgroundColor   =   [UIColor whiteColor];
-    _myTableview.delegate           =   self;
-    _myTableview.dataSource         =   self;
-    _myTableview.separatorStyle     =   UITableViewCellSelectionStyleNone;
 
-    /** 预估高度,一定要有这个 **/
-    _myTableview.estimatedRowHeight =   80.f;
-    [self.view addSubview:_myTableview];
+    [self.view addSubview:self.myTableview];
     
     _cellTextHeightArr = [NSMutableArray new];
 }
@@ -64,17 +56,21 @@ static NSString *cellID = @"cellId";
         _index = 1;
     }
 
+    __weak typeof(self) weakself = self;
     /** 下拉刷新 **/
-    _myTableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self loadUPDataSource];
+    self.myTableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakself loadUPDataSource];
     }];
-    [_myTableview.mj_header beginRefreshing];
+    [self.myTableview.mj_header beginRefreshing];
     
     /** 上拉刷新**/
-//    _myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-//        [self loadDownDataSource];
+    self.myTableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [weakself loadDownDataSource];
+    }];
+//    self.myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        [weakself loadDownDataSource];
 //    }];
-    _myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadDownDataSource)];
+//    _myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadDownDataSource)];
 }
 
 #pragma mark -- 加载数据，下拉刷新
@@ -98,8 +94,8 @@ static NSString *cellID = @"cellId";
             }
             
             weakself.dataArr = [TextModel mj_objectArrayWithKeyValuesArray:array];
-            [_myTableview reloadData];
-            [_myTableview.mj_header endRefreshing];
+            [weakself.myTableview reloadData];
+            [weakself.myTableview.mj_header endRefreshing];
             if (_index > 2) {
                 _index -- ;
             }
@@ -110,7 +106,7 @@ static NSString *cellID = @"cellId";
         {
             /** 网络请求失败 **/
             SLLog(@"------网络请求错误-------");
-            [_myTableview.mj_header endRefreshing];
+            [weakself.myTableview.mj_header endRefreshing];
         }
     }];
 }
@@ -125,20 +121,21 @@ static NSString *cellID = @"cellId";
         _allPage = [data[@"showapi_res_body"][@"allPages"] integerValue];
 //        [weakself.dataArr removeAllObjects];
         if (!error) {
+            SLLog(@"网络请求成功");
             /** 获取文本内容 **/
             for (NSDictionary *textDic in array) {
                 [_cellTextHeightArr addObject:@([NetworkTools getHeightWithText:textDic[@"text"] andFont:15 andWidth:kselfWidth - 10])];
             }
             weakself.dataArr = [TextModel mj_objectArrayWithKeyValuesArray:array];
             SLLog(@"---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n%@\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",weakself.dataArr);
-            [_myTableview reloadData];
-            [_myTableview.mj_footer endRefreshing];
+            [weakself.myTableview reloadData];
+            [weakself.myTableview.mj_footer endRefreshing];
             _index ++;
             
         }else
         {
             SLLog(@"上拉网络请求错误");
-            [_myTableview.mj_footer endRefreshing];
+            [weakself .myTableview.mj_footer endRefreshing];
         }
     }];
 }
@@ -182,6 +179,23 @@ static NSString *cellID = @"cellId";
         _dataArr = [NSMutableArray new];
     }
     return _dataArr;
+}
+
+- (UITableView *)myTableview
+{
+    if (!_myTableview) {
+        
+        _myTableview                    =   [[UITableView alloc] initWithFrame:[UIScreen mainScreen] .bounds];
+        _myTableview .frame = [UIScreen mainScreen].bounds;
+        _myTableview .backgroundColor   =   [UIColor whiteColor];
+        _myTableview.delegate           =   self;
+        _myTableview.dataSource         =   self;
+        _myTableview.separatorStyle     =   UITableViewCellSelectionStyleNone;
+        
+        /** 预估高度,一定要有这个 **/
+        _myTableview.estimatedRowHeight =   80.f;
+    }
+    return _myTableview;
 }
 
 @end
