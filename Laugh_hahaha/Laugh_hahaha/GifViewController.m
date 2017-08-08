@@ -28,9 +28,7 @@ static NSString *cellID = @"cellId";
     [super viewDidLoad];
 
     _index = 1;
-    if (_index < 1 || _index > _allpage) {
-        _index = 1;
-    }
+
     
     [self.view addSubview:self.myTableview];
 //    self.view.backgroundColor = [UIColor greenColor];
@@ -42,16 +40,27 @@ static NSString *cellID = @"cellId";
 #pragma mark -- 刷新
 - (void) refreshDataSource
 {
+    /* < 下拉刷新 > */
     __weak typeof(self) weakself = self;
     self.myTableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakself loadDataSource];
     }];
     [self.myTableview.mj_header beginRefreshing];
+    
+    
+    /* < 上拉刷新 > */
+    self.myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakself uploadDataSource];
+    }];
 }
 
-#pragma mark -- 网络请求
+#pragma mark -- 下拉刷新的网络请求
 - (void) loadDataSource
 {
+    if (_index < 1 || _index > _allpage) {
+        _index = 1;
+    }
+    
     [[NetworkTools shareTools] requestWithMethod:GET andURL:GifURL andParameters:@{parmDic,@"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
         NSArray *arr = data[@"showapi_res_body"][@"contentlist"];
         _allpage = [data[@"showapi_res_body"][@"allPages"] integerValue];
@@ -59,12 +68,39 @@ static NSString *cellID = @"cellId";
             self.dataArray = [GifModel mj_objectArrayWithKeyValuesArray:arr];
             [self.myTableview reloadData];
             [self.myTableview.mj_header endRefreshing];
-            _index ++;
+            if (_index) {
+                _index --;
+            }
         }else
         {
             SLLog(@"gif网络请求失败，失败原因：%@",error);
             [self.myTableview.mj_header endRefreshing];
         }
+    }];
+}
+
+#pragma mark -- 上拉刷新
+- (void) uploadDataSource
+{
+    if (_index > _allpage || _index < 1) {
+        _index = 1;
+    }
+    [[NetworkTools shareTools] requestWithMethod:GET andURL:GifURL andParameters:@{parmDic,@"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
+        NSArray *arr = data[@"showapi_res_body"][@"contentlist"];
+        /** 最大页数 **/
+        _allpage = [data[@"showapi_res_body"][@"allPages"] integerValue];
+        if (!error) {
+            self.dataArray = [GifModel mj_objectArrayWithKeyValuesArray:arr];
+            [self.myTableview reloadData];
+            [self.myTableview.mj_footer endRefreshing];
+            _index ++;
+
+        }else
+        {
+            SLLog(@"上拉刷新网络请求失败");
+            [self.myTableview.mj_footer endRefreshing];
+        }
+        
     }];
 }
 
@@ -87,16 +123,6 @@ static NSString *cellID = @"cellId";
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     cell.gifModel = self.dataArray[indexPath.row];
-//    GifModel *model = cell.gifModel;
-////    [cell.gifImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@"占位图"]];
-//    
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        NSData *dataImage = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.img]];
-//        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            cell.gifImageView.image = [YLGIFImage imageWithData:dataImage];
-//        });
-//    });
 
     return cell;
 }

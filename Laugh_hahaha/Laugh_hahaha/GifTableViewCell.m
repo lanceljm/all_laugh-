@@ -77,7 +77,7 @@
 
 - (void)setGifModel:(GifModel *)gifModel
 {
-    _gifModel = gifModel;
+//    _gifModel = gifModel;
     _titleLab.text  =   gifModel.title;
     _dateLab.text   =   gifModel.ct;
     
@@ -93,7 +93,7 @@
     
         dispatch_async(dispatch_get_main_queue(), ^{
         
-            _gifImageView.image = [YLGIFImage imageWithData:dataImage scale:0.8f];
+            _gifImageView.image = [YLGIFImage imageWithData:dataImage];
         });
     });
 

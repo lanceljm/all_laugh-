@@ -39,22 +39,28 @@ static NSString *cellid = @"cellID";
 
     
 //    self.view.backgroundColor = [UIColor yellowColor];
-    [self mjRefreshLoadDataSource];
 //    [self setupDataSource];
     [self setupUI];
+    [self mjRefreshLoadDataSource];
     
     _index = 1;
-    if (_index < 1 || _index > _allPage) {
-        _index = 1;
-    }
+
 }
 
 - (void) mjRefreshLoadDataSource
 {
+    if (_index < 1 || _index > _allPage) {
+        _index = 1;
+    }
+    
     _myTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self setupDataSource];
     }];
     [_myTableView.mj_header beginRefreshing];
+    
+    _myTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self loadUPDataSource];
+    }];
 }
 
 - (void) setupDataSource
@@ -69,7 +75,9 @@ static NSString *cellid = @"cellID";
             _dataArray = [ImageModel mj_objectArrayWithKeyValuesArray:dataArr];
             [_myTableView reloadData];
             [_myTableView.mj_header endRefreshing];
-            _index ++;
+            if (_index > 2) {
+                _index --;
+            }
         }else
         {
             SLLog(@"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\图片网络请求失败,失败原因：%@",error);
@@ -77,6 +85,27 @@ static NSString *cellid = @"cellID";
         }
     }];
 }
+
+-(void) loadUPDataSource
+{
+    [[NetworkTools shareTools] requestWithMethod:GET andURL:ImageURL andParameters:@{parmDic,@"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
+        NSArray *dataArr = data[@"showapi_res_body"][@"contentlist"];
+        /** 最大页数 **/
+        _allPage = [data[@"showapi_res_body"][@"allPages"] integerValue];
+        if (!error) {
+            _dataArray = [ImageModel mj_objectArrayWithKeyValuesArray:dataArr];
+            [_myTableView reloadData];
+            [_myTableView.mj_footer endRefreshing];
+            _index ++;
+        }else
+        {
+            SLLog(@"图片网络请求失败");
+            [_myTableView.mj_footer endRefreshing];
+        }
+        
+    }];
+}
+
 
 - (void) setupUI
 {

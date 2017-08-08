@@ -34,10 +34,6 @@ static NSString *cellID = @"cellId";
     [self refreshDataSource];
     
     _index = 1;
-    /** 最大页数是467 **/
-    if (_index < 1 || _index > _allPage) {
-        _index = 1;
-    }
 
 }
 
@@ -47,6 +43,7 @@ static NSString *cellID = @"cellId";
 //    self.view.backgroundColor       =   [UIColor redColor];
     
     _myTableview                    =   [[UITableView alloc] initWithFrame:[UIScreen mainScreen] .bounds];
+    _myTableview .frame = [UIScreen mainScreen].bounds;
     _myTableview .backgroundColor   =   [UIColor whiteColor];
     _myTableview.delegate           =   self;
     _myTableview.dataSource         =   self;
@@ -62,6 +59,10 @@ static NSString *cellID = @"cellId";
 #pragma mark -- 刷新
 - (void) refreshDataSource
 {
+    /** 最大页数是467 **/
+    if (_index < 1 || _index > _allPage) {
+        _index = 1;
+    }
 
     /** 下拉刷新 **/
     _myTableview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -70,9 +71,9 @@ static NSString *cellID = @"cellId";
     [_myTableview.mj_header beginRefreshing];
     
     /** 上拉刷新**/
-//    _myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-////        [self loadDownDataSource];
-//    }];
+    _myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self loadDownDataSource];
+    }];
 }
 
 #pragma mark -- 加载数据
@@ -99,7 +100,11 @@ static NSString *cellID = @"cellId";
             weakself.dataArr = [TextModel mj_objectArrayWithKeyValuesArray:array];
             [_myTableview reloadData];
             [_myTableview.mj_header endRefreshing];
-            _index ++ ;
+            if (_index > 2) {
+                _index -- ;
+            }
+
+            
             SLLog(@"-------------array:%@--------------",weakself.dataArr);
         }else
         {
@@ -110,29 +115,29 @@ static NSString *cellID = @"cellId";
     }];
 }
 
-//- (void) loadDownDataSource
-//{
-//    __weak typeof(self) weakself = self;
-//    
-//    [[NetworkTools shareTools] requestWithMethod:GET andURL:TextURL andParameters:@{parmDic , @"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
-//        NSArray *array      =   data[@"showapi_res_body"][@"contentlist"];
-//        if (!error) {
-//            /** 获取文本内容 **/
-//            for (NSDictionary *textDic in array) {
-//                [_cellTextHeightArr addObject:@([NetworkTools getHeightWithText:textDic[@"text"] andFont:15 andWidth:kselfWidth - 10])];
-//            }
-//            weakself.dataArr = [TextModel mj_objectArrayWithKeyValuesArray:array];
-//            [_myTableview reloadData];
-//            [_myTableview.mj_footer endRefreshing];
-//            _index --;
-//            
-//        }else
-//        {
-//            SLLog(@"上拉网络请求错误");
-////            [_myTableview.mj_footer endRefreshing];
-//        }
-//    }];
-//}
+- (void) loadDownDataSource
+{
+    __weak typeof(self) weakself = self;
+    
+    [[NetworkTools shareTools] requestWithMethod:GET andURL:TextURL andParameters:@{parmDic , @"page":[NSString stringWithFormat:@"%ld",(long)_index]} andCallBack:^(id data, NSError *error) {
+        NSArray *array      =   data[@"showapi_res_body"][@"contentlist"];
+        if (!error) {
+            /** 获取文本内容 **/
+            for (NSDictionary *textDic in array) {
+                [_cellTextHeightArr addObject:@([NetworkTools getHeightWithText:textDic[@"text"] andFont:15 andWidth:kselfWidth - 10])];
+            }
+            weakself.dataArr = [TextModel mj_objectArrayWithKeyValuesArray:array];
+            [_myTableview reloadData];
+            [_myTableview.mj_footer endRefreshing];
+            _index ++;
+            
+        }else
+        {
+            SLLog(@"上拉网络请求错误");
+            [_myTableview.mj_footer endRefreshing];
+        }
+    }];
+}
 
 #pragma mark -- uitableview delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

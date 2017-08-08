@@ -101,7 +101,7 @@
 #pragma mark -- 给模型赋值
 - (void)setTextModel:(TextModel *)textModel
 {
-    _textModel = textModel;
+//    _textModel = textModel;
     _titleLab.text  =   textModel.title;
     _dataLab.text   =   textModel.ct;
     

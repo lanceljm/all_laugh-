@@ -32,6 +32,7 @@
     
     [self removeFromParentViewController];
     [self.view removeFromSuperview];
+    
 }
 
 
