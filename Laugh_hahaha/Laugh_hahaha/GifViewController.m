@@ -53,7 +53,7 @@ static NSString *cellID = @"cellId";
     
     
     /* < 上拉刷新 > */
-    self.myTableview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.myTableview.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [weakself uploadDataSource];
     }];
 }

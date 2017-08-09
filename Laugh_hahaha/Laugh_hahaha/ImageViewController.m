@@ -58,7 +58,7 @@ static NSString *cellid = @"cellID";
     }];
     [_myTableView.mj_header beginRefreshing];
     
-    _myTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    _myTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self loadUPDataSource];
     }];
 }
